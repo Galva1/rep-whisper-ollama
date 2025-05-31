@@ -79,33 +79,7 @@ python transcrever_resumir.py
 
 ## 💡 Exemplo de Uso
 
-```python
-import whisper
-import requests
-
-# Transcrição do áudio
-model = whisper.load_model("base")
-caminho_correto = r"C:\audio.mp3"
-result = model.transcribe(caminho_correto)
-texto = result["text"]
-
-# Geração do resumo via Ollama
-prompt = f"Resuma brevemente o seguinte texto:\n\n{texto}"
-
-resposta = requests.post(
-    "http://localhost:11434/api/generate",
-    json={
-        "model": "mistral",
-        "prompt": prompt,
-        "stream": False
-    }
-)
-
-resumo = resposta.json()["response"]
-print("Resumo:\n", resumo)
-```
-
----
+Pode-se ser usado para transcrever áudios, reuniões gravadas, chaveando os pontos importantes de forma prática e rápida.
 
 ## 📄 Licença
 
